@@ -364,7 +364,7 @@ static ssize_t config_show(struct kobject *kobj, char *buf, int b)
 		if(xpad->rconfig[b].interval == 0)
 			return sprintf(buf, "%d\n", 0);
 		else
-			return sprintf(buf, "%d\n",  1000 / xpad->rconfig[b].interval);
+			return sprintf(buf, "%d\n",  500 / xpad->rconfig[b].interval);
 	}
 	else
 	{
@@ -388,7 +388,7 @@ static ssize_t config_store(struct kobject *kobj, const char *buf, size_t count,
 			//printk(KERN_NOTICE "kstrtol fail\n");
 			return count;
 		}
-		xpad->rconfig[b].interval = (int)(1000 / rensha);
+		xpad->rconfig[b].interval = (int)(500 / rensha);
 		return count;
 	}
 	else
